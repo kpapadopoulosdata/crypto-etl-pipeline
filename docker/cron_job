@@ -1,1 +1,1 @@
-*/10 * * * * cd /app && python src/etl_pipeline.py >> /app/data/logs/etl.log 2>&1
+*/10 * * * * cd /app && /usr/local/bin/python3 src/etl_pipeline.py >> /app/data/logs/etl.log 2>&1

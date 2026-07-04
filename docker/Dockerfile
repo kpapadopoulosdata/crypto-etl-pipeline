@@ -12,7 +12,10 @@ COPY docker/cron_job /app/cron_job
 
 RUN crontab /app/cron_job
 
+COPY docker/entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
 RUN mkdir -p /app/data/logs
 RUN touch /app/data/logs/etl.log
 
-CMD cron -f
+CMD ["/app/entrypoint.sh"]
