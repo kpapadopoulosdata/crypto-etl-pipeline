@@ -41,25 +41,19 @@ data, which is only available on paid plans. `percent_change_24h` is used
 instead as the volatility indicator for this project.
 
 ## Project structure
-crypto-etl-pipeline/
-├── data/
-│   └── logs/              # Execution logs from cron runs
-├── src/
-│   ├── extract.py         # Fetches data from CoinMarketCap API
-│   ├── load.py             # Inserts parsed records into PostgreSQL
-│   └── etl_pipeline.py     # Main entry point: extract → transform → load
-├── docker/
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   ├── cron_job            # Cron schedule definition
-│   └── entrypoint.sh       # Passes environment variables to cron
-├── sql_scripts/
-│   ├── init.sql            # Table schema, auto-run on first startup
-│   └── analysis.sql        # Validation and analysis queries
-├── documentation/
-│   └── architecture.png
-├── .gitignore
-└── requirements.txt
+- `data/logs/` — execution logs from cron runs
+- `src/extract.py` — fetches data from CoinMarketCap API
+- `src/load.py` — inserts parsed records into PostgreSQL
+- `src/etl_pipeline.py` — main entry point: extract → transform → load
+- `docker/Dockerfile` — image definition for the Python app
+- `docker/docker-compose.yml` — orchestration for app + PostgreSQL
+- `docker/cron_job` — cron schedule definition
+- `docker/entrypoint.sh` — passes environment variables to cron
+- `sql_scripts/init.sql` — table schema, auto-run on first startup
+- `sql_scripts/analysis.sql` — validation and analysis queries
+- `documentation/architecture.png` — architecture diagram
+- `.gitignore` — excludes secrets and local environment files
+- `requirements.txt` — Python dependencies
 
 ## Setup and running locally
 
