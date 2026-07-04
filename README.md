@@ -41,32 +41,19 @@ data, which is only available on paid plans. `percent_change_24h` is used
 instead as the volatility indicator for this project.
 
 ## Project structure
-- `data/logs/` — execution logs from cron runs
-- `src/extract.py` — fetches data from CoinMarketCap API
+- `data/logs/` - execution logs from cron runs
+- `src/extract.py` - fetches data from CoinMarketCap API
 - `src/load.py` — inserts parsed records into PostgreSQL
-- `src/etl_pipeline.py` — main entry point: extract → transform → load
-- `docker/Dockerfile` — image definition for the Python app
-- `docker/docker-compose.yml` — orchestration for app + PostgreSQL
-- `docker/cron_job` — cron schedule definition
-- `docker/entrypoint.sh` — passes environment variables to cron
-- `sql_scripts/init.sql` — table schema, auto-run on first startup
-- `sql_scripts/analysis.sql` — validation and analysis queries
-- `documentation/architecture.png` — architecture diagram
-- `.gitignore` — excludes secrets and local environment files
-- `requirements.txt` — Python dependencies
-
-## Setup and running locally
-
-1. Clone the repository
-2. Create a `.env` file in the project root with:
-COINMARKETCAP_API_KEY=your_api_key_here
-POSTGRES_USER=your_db_user
-POSTGRES_PASSWORD=your_db_password
-POSTGRES_DB=your_db_name
-3. Run:
-docker compose --env-file .env -f docker/docker-compose.yml up --build -d
-4. The pipeline will automatically run every 10 minutes. Check logs with:
-docker exec -it crypto_etl_app cat /app/data/logs/etl.log
+- `src/etl_pipeline.py` - main entry point: extract → transform → load
+- `docker/Dockerfile` - image definition for the Python app
+- `docker/docker-compose.yml` - orchestration for app + PostgreSQL
+- `docker/cron_job` - cron schedule definition
+- `docker/entrypoint.sh` - passes environment variables to cron
+- `sql_scripts/init.sql` - table schema, auto-run on first startup
+- `sql_scripts/analysis.sql` - validation and analysis queries
+- `documentation/architecture.png` - architecture diagram
+- `.gitignore` - excludes secrets and local environment files
+- `requirements.txt` - Python dependencies
 
 ## Validating the data
 
