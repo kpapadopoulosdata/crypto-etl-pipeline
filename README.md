@@ -13,9 +13,9 @@ Cron to run every 10 minutes, building a continuous historical dataset.
 
 The pipeline runs inside a single Docker Compose environment with two services:
 
-- **ETL app container** — a Python environment with a cron scheduler that
+- **ETL app container** - a Python environment with a cron scheduler that
   triggers the pipeline every 10 minutes
-- **PostgreSQL container** — stores every run's results in the
+- **PostgreSQL container** - stores every run's results in the
   `crypto_history` table, building a time-series dataset
 
 ## Data source
@@ -43,8 +43,8 @@ instead as the volatility indicator for this project.
 ## Project structure
 - `data/logs/` - execution logs from cron runs
 - `src/extract.py` - fetches data from CoinMarketCap API
-- `src/load.py` — inserts parsed records into PostgreSQL
-- `src/etl_pipeline.py` - main entry point: extract → transform → load
+- `src/load.py` - inserts parsed records into PostgreSQL
+- `src/etl_pipeline.py` - main entry point: extract -> transform -> load
 - `docker/Dockerfile` - image definition for the Python app
 - `docker/docker-compose.yml` - orchestration for app + PostgreSQL
 - `docker/cron_job` - cron schedule definition
